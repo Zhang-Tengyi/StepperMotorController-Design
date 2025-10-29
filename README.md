@@ -132,7 +132,7 @@ Because the microcontroller’s output current is small, a current-amplifying ci
 ---
 
 
-## 5. Software Design  
+## 6. Software Design  
 
 ### Program Overview  
 The software of the system is written in C language and compiled using Keil C51.  
@@ -165,7 +165,7 @@ When the system is in normal operation, it shows the real-time motor speed.
 During speed configuration, the display switches to show editable speed digits and the cursor indicator.
 
 #### (5) Shift Operation  
-Left and right shift keys are used to move the decimal point (cursor) across the digits during speed configuration.  
+Left and right shift keys are used to move the cursor across the digits during speed configuration.  
 The currently selected digit can then be changed by pressing a numeric key.
 
 #### (6) Target Speed Setting  
