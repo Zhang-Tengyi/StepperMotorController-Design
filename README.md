@@ -28,16 +28,14 @@ The system realizes **start/stop, acceleration/deceleration, forward/reverse rot
 ## 3. System Function Description  
 
 ### 4×4 Keypad  
-The 4×4 matrix keypad is divided into two parts: numeric keys and function keys.  
-The numeric keys (0–9) are used for setting the target speed digits, while the function keys perform operations such as start/stop, forward/reverse rotation, speed setting, cancel setting, and left/right shift.  
+The 4×4 matrix keypad is divided into two parts: numeric keys and function keys. The numeric keys (0–9) are used for setting the target speed digits, while the function keys perform operations such as start/stop, forward/reverse rotation, speed setting, cancel setting, and left/right shift.  
 When the speed-setting mode is activated, the LED display shows a decimal point that can be shifted left or right, and the digits can be modified by pressing numeric keys.
 
 ---
 
 ### LED Display  
 The LED display shows both the real-time motor speed and the target speed value during configuration.  
-When the motor is running, it displays the current rotation speed.  
-When the system enters the speed-setting mode, a decimal point appears under the last digit as a cursor.  
+When the motor is running, it displays the current rotation speed. When the system enters the speed-setting mode, a decimal point appears under the last digit as a cursor.  
 The cursor position can be moved by the shift keys, and after confirmation, the display returns to showing the real-time speed.
 
 ---
@@ -52,8 +50,7 @@ The motor’s rotation speed corresponds to the frequency of pulse signals gener
 
 ### Buzzer  
 The buzzer provides feedback when a key is pressed.  
-It starts sounding when any key is pressed and stops when the key is released.  
-This gives the user an audible indication of the key input.
+It starts sounding when any key is pressed and stops when the key is released. This gives the user an audible indication of the key input.
 
 
 ---
