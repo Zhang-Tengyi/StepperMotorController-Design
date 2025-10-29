@@ -67,7 +67,7 @@ This gives the user an audible indication of the key input.
 ![Proteus Simulation Circuit Diagram](Img/Proteus_Simulation_Circuit_Diagram.png)
 
 ### Physical Wiring Diagram
-![Physical Wiring Diagram](Img/Physical_Wiring_Diagram.png)
+![Physical Wiring Diagram](Img/Physical_Wiring_Diagram.jpg)
 
 
 ---
@@ -80,6 +80,9 @@ The crystal oscillator circuit provides the clock signal for the AT89C51 microco
 A 12 MHz crystal and two capacitors are connected to the XTAL1 and XTAL2 pins, forming a parallel resonance circuit that ensures stable clock oscillation within the 6–12 MHz range.  
 This clock signal drives the internal timing and execution of all MCU operations.
 
+![Proteus Simulation Crystal Oscillator Circuit Diagram](Img/Proteus_Simulation_Crystal_Oscillator_Circuit_Diagram.png)
+![Physical Crystal Oscillator Circuit Diagram](Img/Physical_Crystal_Oscillator_Circuit_Diagram.png)
+
 ---
 
 ### 4×4 Keypad  
@@ -87,6 +90,9 @@ The 4×4 keypad circuit is connected to Port 1 of the microcontroller.
 Pins P1.0–P1.4 are connected to the rows, and pins P1.5–P1.7 are connected to the columns.  
 The keypad uses a matrix scanning method: each column line is pulled low in sequence while the row lines are monitored to detect pressed keys.  
 This layout allows the system to identify which key is pressed using only eight I/O lines.
+
+![Proteus Simulation 4×4 Keypad Circuit Diagram](Img/Proteus_Simulation_4x4_Keypad_Circuit_Diagram.png)
+![Physical 4×4 Keypad Circuit Diagram](Img/Physical_4x4_Keypad_Circuit_Diagram.png)
 
 ---
 
@@ -96,6 +102,9 @@ The segment lines are connected to Port 0 (P0.0–P0.7), and the digit selection
 A dynamic display method is used: the microcontroller rapidly switches the active digit and updates its segment data so that only one digit is lit at a time.  
 Due to visual persistence, the human eye perceives a continuous display of all digits.
 
+![Proteus Simulation 8-Digit LED Display Circuit Diagram](Img/Proteus_Simulation_8_Digit_LED_Display_Circuit_Diagram.png)
+![Physical 8-Digit LED Display Circuit Diagram](Img/Physical_8_Digit_LED_Display_Circuit_Diagram.png)
+
 ---
 
 ### Stepper Motor  
@@ -104,6 +113,9 @@ It is driven by an L298N power amplifier controlled by the AT89C51.
 The microcontroller outputs a sequence of pulse signals to the L298N, which energizes the motor coils in turn.  
 By changing the pulse frequency, the system adjusts the motor speed; by changing the excitation sequence, it reverses the rotation direction.
 
+![Proteus Simulation Stepper Motor Circuit Diagram](Img/Proteus_Simulation_Stepper_Motor_Circuit_Diagram.png)
+![Physical Stepper Motor Circuit Diagram](Img/Physical_Stepper_Motor_Circuit_Diagram.png)
+
 ---
 
 ### Buzzer  
@@ -111,6 +123,9 @@ The buzzer is connected to pin P3.7 of the microcontroller.
 It is a passive buzzer that requires a pulse signal to produce sound.  
 The program alternates the output level of P3.7 at a certain frequency, causing the buzzer’s membrane to vibrate and emit sound.  
 Because the microcontroller’s output current is small, a current-amplifying circuit is used to drive the buzzer effectively.
+
+![Proteus Simulation Buzzer Circuit Diagram](Img/Proteus_Simulation_Buzzer_Circuit_Diagram.png)
+![Physical Buzzer Circuit Diagram](Img/Physical_Buzzer_Circuit_Diagram.png)
 
 ---
 
