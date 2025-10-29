@@ -20,8 +20,6 @@ The system realizes **start/stop, acceleration/deceleration, forward/reverse rot
 
 ### Advanced Level  
 - Enable **serial communication** with a PC (virtual COM port).  
-- Command format: `0xEB, 0x90, CMD, DATA(16-bit)`.  
-- Optionally integrate **LCD1602**, **DS18B20 temperature sensor**, or **DS1302 RTC** modules.
 
 
 ---
