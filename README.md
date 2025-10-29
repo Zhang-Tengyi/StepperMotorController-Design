@@ -64,9 +64,11 @@ This gives the user an audible indication of the key input.
 ## 4. Hardware Circuit Design
 
 ### Proteus Simulation Circuit Diagram
-
+![Proteus Simulation Circuit Diagram](Img/Proteus_Simulation_Circuit_Diagram.png)
 
 ### Physical Wiring Diagram
+![Physical Wiring Diagram](Img/Physical_Wiring_Diagram.png)
+
 
 ---
 
