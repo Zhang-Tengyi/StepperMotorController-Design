@@ -125,9 +125,66 @@ The program alternates the output level of P3.7 at a certain frequency, causing 
 Because the microcontroller’s output current is small, a current-amplifying circuit is used to drive the buzzer effectively.
 
 ![Proteus Simulation Buzzer Circuit Diagram](Img/Proteus_Simulation_Buzzer_Circuit_Diagram.png)
+
+
 ![Physical Buzzer Circuit Diagram](Img/Physical_Buzzer_Circuit_Diagram.png)
 
 ---
 
 
+## 5. Software Design  
+
+### Program Overview  
+The software of the system is written in C language and compiled using Keil C51.  
+It controls the overall process of the stepper motor operation, including keypad scanning, speed control, display refreshing, and serial communication.  
+Each functional block is implemented as an independent subroutine, and timer interrupts are used to generate periodic tasks for real-time response.  
+
+---
+
+### Functional Modules  
+
+#### (1) 4×4 Keypad Scanning  
+The program continuously scans the keypad rows and columns.  
+When a key is pressed, the program detects a change in the row signal and identifies the corresponding key value.  
+A short delay is added for debounce, and the buzzer is activated during the keypress.  
+
+#### (2) Key Function Processing  
+After obtaining a key value, the system executes the corresponding function:  
+- Start/stop control  
+- Direction switching  
+- Entering or exiting the speed-setting mode  
+- Confirming or cancelling speed configuration  
+
+#### (3) Motor Direction Control  
+The motor direction is determined by the flag variable.  
+When the direction key is pressed, the flag is toggled, and the output excitation sequence changes accordingly, achieving forward or reverse rotation.
+
+#### (4) Real-Time Speed Display  
+The LED display is refreshed dynamically using a timer interrupt.  
+When the system is in normal operation, it shows the real-time motor speed.  
+During speed configuration, the display switches to show editable speed digits and the cursor indicator.
+
+#### (5) Shift Operation  
+Left and right shift keys are used to move the decimal point (cursor) across the digits during speed configuration.  
+The currently selected digit can then be changed by pressing a numeric key.
+
+#### (6) Target Speed Setting  
+After entering new speed digits, the system calculates the pulse delay value based on the target speed.  
+Once confirmed, the new speed replaces the previous one, and the display returns to real-time mode.
+
+#### (7) Timer Interrupt  
+Timer 0 generates a 1 ms interrupt period.  
+It controls motor stepping, LED display refreshing, and speed display switching.  
+When the timer count reaches the calculated value, a pulse is sent to drive the stepper motor.
+
+#### (8) Serial Communication  
+The UART interrupt is used to receive serial data.  
+When data is received, it is stored in a buffer and processed as a simulated key input.  
+This enables simple PC-side control of motor actions.
+
+
+The complete code is shown below:
+[Stepper Motor Control](./Code/Stepper_Motor_Control.c)
+
+---
 
