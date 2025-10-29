@@ -3,7 +3,7 @@
 ---
 
 
-## 1. Overview  
+## Overview  
 
 This project presents the design of a Stepper Motor Controller based on the AT89C51 microcontroller and L298N driver.  
 The system realizes **start/stop, acceleration/deceleration, forward/reverse rotation, and speed setting**. A 4×4 matrix keypad is used for speed and direction input, an 8-digit LED display shows real-time motor speed, and a buzzer provides key feedback.
@@ -11,7 +11,7 @@ The system realizes **start/stop, acceleration/deceleration, forward/reverse rot
 
 ---
 
-## 2. Design Objective  
+## Design Objective  
 
 ### Basic Level  
 - Implement a **4×4 keypad** with 16 keys: digits (0–9), shift left/right, start/stop, direction, speed-up/down, confirm/cancel.  
@@ -25,22 +25,22 @@ The system realizes **start/stop, acceleration/deceleration, forward/reverse rot
 ---
 
 
-## 3. System Function Description  
+## System Function Description  
 
-### 4×4 Keypad  
+### 1. 4×4 Keypad  
 The 4×4 matrix keypad is divided into two parts: numeric keys and function keys. The numeric keys (0–9) are used for setting the target speed digits, while the function keys perform operations such as start/stop, forward/reverse rotation, speed setting, cancel setting, and left/right shift.  
 When the speed-setting mode is activated, the LED display shows a decimal point that can be shifted left or right, and the digits can be modified by pressing numeric keys.
 
 ---
 
-### LED Display  
+### 2. LED Display  
 The LED display shows both the real-time motor speed and the target speed value during configuration.  
 When the motor is running, it displays the current rotation speed. When the system enters the speed-setting mode, a decimal point appears under the last digit as a cursor.  
 The cursor position can be moved by the shift keys, and after confirmation, the display returns to showing the real-time speed.
 
 ---
 
-### Stepper Motor  
+### 3. Stepper Motor  
 The stepper motor executes the user-defined target speed and direction.  
 After the user sets the target speed and presses the start key, the motor begins rotating at the defined speed.  
 When the reverse key is pressed, the motor changes its rotation direction.  
@@ -48,7 +48,7 @@ The motor’s rotation speed corresponds to the frequency of pulse signals gener
 
 ---
 
-### Buzzer  
+### 4. Buzzer  
 The buzzer provides feedback when a key is pressed.  
 It starts sounding when any key is pressed and stops when the key is released. This gives the user an audible indication of the key input.
 
@@ -56,7 +56,7 @@ It starts sounding when any key is pressed and stops when the key is released. T
 ---
 
 
-## 4. Hardware Circuit Design
+## Hardware Circuit Design
 
 ### Proteus Simulation Circuit Diagram
 ![Proteus Simulation Circuit Diagram](Img/Proteus_Simulation_Circuit_Diagram.png)
@@ -68,9 +68,9 @@ It starts sounding when any key is pressed and stops when the key is released. T
 ---
 
 
-## 5. Hardware Function Planning and Module Interface Principles  
+## Hardware Function Planning and Module Interface Principles  
 
-### Crystal Oscillator  
+### 1. Crystal Oscillator  
 The crystal oscillator circuit provides the clock signal for the AT89C51 microcontroller.  
 A 12 MHz crystal and two capacitors are connected to the XTAL1 and XTAL2 pins, forming a parallel resonance circuit that ensures stable clock oscillation within the 6–12 MHz range.  
 This clock signal drives the internal timing and execution of all MCU operations.
@@ -80,7 +80,7 @@ This clock signal drives the internal timing and execution of all MCU operations
 
 ---
 
-### 4×4 Keypad  
+### 2. 4×4 Keypad  
 The 4×4 keypad circuit is connected to Port 1 of the microcontroller.  
 Pins P1.0–P1.4 are connected to the rows, and pins P1.5–P1.7 are connected to the columns.  
 The keypad uses a matrix scanning method: each column line is pulled low in sequence while the row lines are monitored to detect pressed keys.  
@@ -91,7 +91,7 @@ This layout allows the system to identify which key is pressed using only eight 
 
 ---
 
-### 8-Digit LED Display  
+### 3. 8-Digit LED Display  
 The 8-digit LED display is composed of eight 7-segment digits sharing common segment lines.  
 The segment lines are connected to Port 0 (P0.0–P0.7), and the digit selection lines are connected to Port 2 (P2.0–P2.7).  
 A dynamic display method is used: the microcontroller rapidly switches the active digit and updates its segment data so that only one digit is lit at a time.  
@@ -102,7 +102,7 @@ Due to visual persistence, the human eye perceives a continuous display of all d
 
 ---
 
-### Stepper Motor  
+### 4. Stepper Motor  
 The stepper motor used is a four-phase, six-wire type with a 7.5° step angle and a 5 V operating voltage.  
 It is driven by an L298N power amplifier controlled by the AT89C51.  
 The microcontroller outputs a sequence of pulse signals to the L298N, which energizes the motor coils in turn.  
@@ -113,7 +113,7 @@ By changing the pulse frequency, the system adjusts the motor speed; by changing
 
 ---
 
-### Buzzer  
+### 5. Buzzer  
 The buzzer is connected to pin P3.7 of the microcontroller.  
 It is a passive buzzer that requires a pulse signal to produce sound.  
 The program alternates the output level of P3.7 at a certain frequency, causing the buzzer’s membrane to vibrate and emit sound.  
@@ -127,7 +127,7 @@ Because the microcontroller’s output current is small, a current-amplifying ci
 ---
 
 
-## 6. Software Design  
+## Software Design  
 
 ### Program Overview  
 The software of the system is written in C language and compiled using Keil C51.  
